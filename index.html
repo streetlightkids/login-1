@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <form name="login">
+      <input name="redirect_after_login" type="hidden" value="/?lang=en" />
+      <input name="remember_me" type="hidden" value="1" />
+      <input name="wfa" type="hidden" value="1" />
+
+      <label>
+        <div class="label">Phone, email, or username</div>
+        <div>
+          <input
+            name="username_or_email"
+            autocapitalize="none"
+            autocomplete="on"
+            autocorrect="off"
+            spellcheck="false"
+            type="text"
+            dir="auto"
+            value=""
+          />
+        </div>
+      </label>
+
+      <label>
+        <div class="label">Password</div>
+        <div class="input">
+          <input
+            name="password"
+            autocapitalize="none"
+            autocomplete="on"
+            autocorrect="off"
+            spellcheck="false"
+            type="password"
+            dir="auto"
+            value=""
+          />
+        </div>
+      </label>
+
+      <div class="buttons">
+        <input type="submit" value="Log In" />
+      </div>
+    </form>
+
+    <script>
+      {
+        const counter = document.createElement("div");
+        let i = 0;
+        const iterate = () => (counter.innerText = i++);
+        setInterval(iterate, 1000);
+        iterate();
+
+        document.body.appendChild(counter);
+      }
+    </script>
+    <script>
+      document.forms["login"].addEventListener("submit", (e) =>
+        e.preventDefault()
+      );
+    </script>
+  </body>
+</html>
