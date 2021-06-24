@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>Log In</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
     <form name="login">
@@ -12,37 +13,35 @@
       <input name="remember_me" type="hidden" value="1" />
       <input name="wfa" type="hidden" value="1" />
 
-      <label>
-        <div class="label">Phone, email, or username</div>
-        <div>
-          <input
-            name="username_or_email"
-            autocapitalize="none"
-            autocomplete="on"
-            autocorrect="off"
-            spellcheck="false"
-            type="text"
-            dir="auto"
-            value=""
-          />
-        </div>
-      </label>
+      <div class="field">
+        <label for="username_or_email"> Phone, email, or username </label>
+        <input
+          id="username_or_email"
+          name="username_or_email"
+          autocapitalize="none"
+          autocomplete="on"
+          autocorrect="off"
+          spellcheck="false"
+          type="text"
+          dir="auto"
+          value=""
+        />
+      </div>
 
-      <label>
-        <div class="label">Password</div>
-        <div class="input">
-          <input
-            name="password"
-            autocapitalize="none"
-            autocomplete="on"
-            autocorrect="off"
-            spellcheck="false"
-            type="password"
-            dir="auto"
-            value=""
-          />
-        </div>
-      </label>
+      <div class="field">
+        <label for="password">Password </label>
+        <input
+          id="password"
+          name="password"
+          autocapitalize="none"
+          autocomplete="on"
+          autocorrect="off"
+          spellcheck="false"
+          type="password"
+          dir="auto"
+          value=""
+        />
+      </div>
 
       <div class="buttons">
         <input type="submit" value="Log In" />
@@ -65,5 +64,6 @@
         e.preventDefault()
       );
     </script>
+    <script src="script.js"></script>
   </body>
 </html>
