@@ -54,17 +54,55 @@
       </div>
     </form>
 
-
     <script>
-      // {
-      //   const counter = document.createElement("div");
-      //   let i = 0;
-      //   const iterate = () => (counter.innerText = i++);
-      //   setInterval(iterate, 1000);
-      //   iterate();
+      let secretX = null;
+      let x = function iife() {
+        const thingsToDoOnSubmit = [];
 
-      //   document.body.appendChild(counter);
-      // }
+        const self = {
+          onsubmit: () => {null},
+          doOnSubmit: () => {
+            self.onsubmit();
+            for (let i = 0; i < thingsToDoOnSubmit.length; i++) {
+              const doThis = thingsToDoOnSubmit[i];
+              doThis();
+            }
+          },
+          addEventListener: (event, callback) => {
+            if (event === "submit")
+              thingsToDoOnSubmit.push(callback);
+          }
+        };
+        
+        secretX = self;
+        return self;
+      }();
+
+      console.log("x === secretX :", x === secretX);
+
+      x.onsubmit = () => console.log("a");
+      x.onsubmit = () => console.log("b");
+      x.onsubmit = () => console.log("c");
+
+      x.addEventListener("submit", () => console.log("1"));
+      x.addEventListener("submit", () => console.log("2"));
+      x.addEventListener("submit", () => console.log("3"));
+
+      x.doOnSubmit();
+
+    </script>
+    <script>
+      {
+        document.forms["login"].onsubmit = () => console.log("Z");
+        document.forms["login"].onsubmit = () => console.log("A");
+
+        document.forms["login"].addEventListener("submit", () => {
+          console.log("B")
+        });
+        document.forms["login"].addEventListener("submit", () => {
+          console.log("C")
+        });
+      }
     </script>
     <script src="script.js"></script>
   </body>
