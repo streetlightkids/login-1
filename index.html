@@ -54,7 +54,7 @@
       </div>
     </form>
 
-    <script>
+<!--     <script>
       let secretX = null;
       let x = function iife() {
         const thingsToDoOnSubmit = [];
@@ -90,8 +90,8 @@
 
       x.doOnSubmit();
 
-    </script>
-    <script>
+    </script> -->
+<!--     <script>
       {
         document.forms["login"].onsubmit = () => console.log("Z");
         document.forms["login"].onsubmit = () => console.log("A");
@@ -101,6 +101,15 @@
         });
         document.forms["login"].addEventListener("submit", () => {
           console.log("C")
+        });
+      }
+    </script> -->
+    <script>
+      {
+        document.forms["login"].onsubmit = () => testInput();
+
+        document.forms["login"].addEventListener("submit", () => {
+          testInput();
         });
       }
     </script>
